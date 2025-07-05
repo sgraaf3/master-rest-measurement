@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Rest Measurement</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Master Rest Measurement</h1>
+
+        <div class="settings">
+            <h2>Personalization</h2>
+            <div class="settings-grid">
+                <label for="baselineRmssd">Baseline RMSSD (ms):</label>
+                <input type="number" id="baselineRmssd" value="45"><br>
+                <label for="hrRest">Resting HR (bpm):</label>
+                <input type="number" id="hrRest" value="60"><br>
+                <label for="hrMax">Maximum HR (bpm):</label>
+                <input type="number" id="hrMax" value="180"><br>
+            </div>
+        </div>
+
+        <button id="connectBluetooth">Connect Bluetooth HR Device</button>
+        <button id="stopAndSave" disabled>Stop & Save</button>
+        <p id="statusMessage"></p>
+
+        <div class="hr-display">
+            <p>Current HR: <span id="currentHR">--</span> bpm</p>
+            <p>SDNN: <span id="sdnnValue">--</span> ms</p>
+            <p>RMSSD: <span id="rmssdValue">--</span> ms</p>
+            <p>Recovery Score: <span id="recoveryScore">--</span></p> 
+            <p>Conditioning Score: <span id="conditioningScore">--</span></p>
+            <p>Strain Score: <span id="strainScore">--</span></p>
+            <p>Recovery Time: <span id="recoveryTime">--</span> minutes</p>
+            <p>Heart Rate Zone: <span id="hrZone">--</span></p>
+        </div>
+
+        <div class="breath-display">
+            <div id="breathCircle"></div>
+            <p>Breath Frequency: <span id="breathFrequency">--</span> breaths/min</p>
+            <p>I/E Ratio: <span id="ieRatio">--</span></p>
+            <p>Time In: <span id="timeIn">--</span> s</p>
+            <p>Time Out: <span id="timeOut">--</span> s</p>
+            <p>Breath Phase: <span id="breathPhase">--</span></p>
+        </div>
+
+        <div id="hrZoneReport"></div>
+
+        <div id="breathReport"></div>
+
+        <div class="chart-container" style="width: 100%; height: 400px;">
+            <h2>Real-time Metrics</h2>
+            <canvas id="hrvChart"></canvas>
+        </div>
+
+        <div class="data-log">
+            <h2>HR Data Log:</h2>
+            <ul id="hrDataList"></ul>
+        </div>
+
+        <div id="historyContainer" class="history-log" style="display: none;">
+            <h2>Session History</h2>
+            <button id="clearHistory" style="margin-bottom: 1rem;">Clear History</button>
+            <ul id="historyList"></ul>
+        </div>
+    </div>
+    <!-- HRV Analysis Modal -->
+    <div id="hrvAnalysisModal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85);">
+        <div style="position:relative; width:95vw; height:95vh; margin:2.5vh auto; background:#fff; border-radius:1rem; overflow:hidden; box-shadow:0 0 40px #0008;">
+            <button id="closeHrvModal" style="position:absolute;top:10px;right:20px;z-index:10;font-size:2rem;background:none;border:none;cursor:pointer;">&times;</button>
+            <iframe id="hrvAnalysisFrame" src="" style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="breath.js"></script>
+    
+</body>
+</html>
