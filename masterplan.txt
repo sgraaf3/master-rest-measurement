@@ -1,0 +1,215 @@
+//before start:step >> document plan and individual step checklist in copy of masterplan.txt named "masterplan_(name-page).txt" and update masterplan_manager.txt to run and manage all steps.
+    >> updatechecklist and log on every step.
+//run masterplan.txt>> persist and solve problems >> Rules are holy and can never be breached.
+
+//scope: Whole project > output app folders and files in folderpath: android_apk_master_rest_measurement
+//Goal: print android APK > Connect all HRM devices > Execute hr measurment >(save (rr or hr) data to new txt file in folder:History)> analyse after finishing via the Advanced HRV analysis > Open/print report from report.html. 
+
+
+// translate 
+    Html,js,css
+    per file >> to a android build ( vue js) 
+    >> build folders and files in Folderpath: android_apk_master_rest_measurement.
+    >> install packages, dependencies, etc... 
+    >> clean build from unused/conflicting code >> if 2 packages do the same >> choose oldest package installed >> delete other package from vs code.
+
+
+input:(
+    heart rate monitors(bluetooth, ant+):(
+        light sensors, 
+        open smartwatches, 
+        chest straps,
+        Phone Camera,
+        etc...
+        ),
+    Upload: txt files, csv files
+    If possible:>>(
+        Muscle saturation sensors: (example:red band),
+        Ant+ Heart rate monitors: (),
+    )
+)
+Filter:(
+    Rr interval data:(
+        (light sensors, 
+        open smartwatches, 
+        Phone Camera,)
+        
+        chest straps:(
+            filter out all data not 3 of 4 digits (heart rate time),
+            Filter out new interval that is equal of greater than 1.4 times.
+        )
+
+        )
+)
+
+Rules:(
+- (unless defined in step) : if the step is not solved in max 5 tries, document failed solution in masterplan.txt and redefine scope + make/edit plan to solve issue.
+,restart full 5 tries cycle/redefine plan. with new plan if plan is not solved(max 3 cycles)
+- run masterplan.txt>> persist and solve problems >> Rules are holy and can never be breached.
+- use breakpoint when identifying problems. delete when done.
+- Focus and update on 1 step at the time >> quality over quantity.
+- use breakpoint when identifying problems.
+- Focus and update on 1 step at the time >> quality (after test, delete breakpoints) and try to solve again. + document old solution (max 3 cycles)
+- keep all files under 600 lines of code >> 
+- use es6 modules for every function/formulas, preference: import from module over script in html, recycle modules as much as you can/ >> manage all files in JS specific folders via subject-management.js in the folder above.
+- before, during and after every individual step update Log and plan in Masterplan.txt
+- save the end result on the desktop and save it on github. 
+- auto git commit changes + write messages and logs. >> use repository as data source and reference.
+- import git repositories if needed in a seperate gitdataisolatedfolder for reference. 
+- stay away from installing more packages, extensions, plugins, libraries, tools,etc... >> use existing packages,extensions, plugins, libraries, tools,etc... >> 
+- check for useless code/packages, extensions, plugins, libraries, tools,etc... >> delete. 
+- priorities:(
+    - bluetooth and data (connection, handling, saving, filtering, displaying)
+    - stability and performance.
+        - user experience.
+            - engaging and extensive features.
+            - ease of use
+            - security and privacy protection.
+    - data privacy and security.
+-Auto accept changes >> document and specific Log.js file
+-Auto accept and finnish execution without pause or interference.
+)
+)
+
+Protocol for executing steps:(
+    - only work on step: In progress.
+    - Step (in progress), execute ordened steps:(
+    - step 1: identify needs, permissions, resources, goals,database, data, users, etc... +structure, inputs, outputs and constraints.
+    - step 2: make hypotheses on outcomes> set up structure and step Log for solving(step in progress)> update log before trying to solve.
+    - step 3: stress test solutions, test and refine. satisfied = 99% accuracy, if not, document error texts and try to solve again. + document old solution repeat step 1,2,32 (max 3 cycles) 
+    - step 4: masterplan.txt = if solved > when all steps are status done and 
+                all steps are satisfied = 99%. 
+                build/make > android module for debugging, 
+                delete unused apis,modules and code >> reinstall nessacerry packages,extensions, plugins, libraries, tools,etc... and dependiencies, if not solved, document error texts and try to solve again. + document old solution >> repeat step 1,2,32 (max 3 cycles)    
+    - step 5: if solved: open android studio > Set config for project > build > run > debug > test.
+    - step 6: scan code for errors and fix them >> persist untill hypthese>99% accuracy.
+    - step 7: if solved: open android studio > Set config for project > build > run > debug > test.
+    - step 8: scan code, make hypotheses about possible errors/data points/perfomance improvements >> identify strengths and weaknessen >> build test plan>>add hypotheses>>solve and compare to hypotheses >> check if range of result is REAL. update Log >>ix them, repeat untill accuracy=99% 
+    (check software updates, software version compatability, check for updates, check for bugs, check for errors, 
+    solution-list add +review  , check for problems,) >> persist untill hypthese>99%  accuracy.
+    - step 9: write plan for optimise code, optimise performance, optimise code volume, analyse and improve modules/functions.
+    -step 10: build test/debug plan, identify and setbreakpoints, test, debug, optimise code, optimise performance, optimise code volume, analyse and improve modules/functions.
+    -step 11: build test/debug plan test and compare hypotheses to outcome. if satisfied=99% accuracy, document solution, 
+                if not, document error texts and try to solve again. + document old solution, review/edit solution plan before solving again. >> repeat step 10,11 cycle (max 5 cycles) 
+    - step 12: if solved: open android studio > Set config for project > build > run > debug > test.
+    - step 13: scan code for errors/bugs/cross references/linktrees/etc... and fix them >> persist untill hypothese compare>99% accuracy.
+    - step 14: if solved: open android studio > Set config for project > build > run > debug > test.
+    - step 15: scan code > list resources > edit resources > add resources > delete resources > update resources > update Log >> persist untill hypthese>99% accuracy.
+    - step 16: if solved: open android studio > Set config for project > build > run > debug > test.
+    - step 17: write a test plan for checking if the functionality is working as expected. >> persist untill hypthese>99% accuracy.
+    - step 18: if solved: open android studio > Set config for project > build > run > debug > test.
+                if not, document error texts and try to solve again. + document old solution, review/edit solution plan before solving again. >> repeat step 17,18 cycle (max 5 cycles) 
+    - step 19: review all logs and information possible on the debug test build. End masterplan.txt with a report of all steps and solutions. 
+            showing all solutions and problems chronologically and in table format with sorting functionality. 
+            >> persist untill hypthese>>99% accuracy.
+    - step 20: document / style to fit outcomes. visualise data in a way that is easy to understand and use. >> persist untill hypthese>99% accuracy.
+    - step 21: document / personalise style to fit userprofileData. add explainations on data/subjects creatively which best suits user needs. >> persist untill hypthese>99% accuracy.
+    - step 22: identify apk needs/constraints/dependiencies and build signed apk,(re)evaluate finilize app plan(build apk) in masterplan.txt >> persist untill hypthese>99% accuracy.
+    - step 23: document / personalise style to fit userprofileData. add explainations on data/subjects creatively which best suits user needs. >> persist untill hypthese>99% accuracy.
+    - step 24: make finilize app in 
+),
+log-templates:(
+    - step 0: build log frame:( 
+    log.failed.executions(500 words) = (
+        errorname, 
+        errormessage, 
+        proposed solution, 
+        arguments failed, 
+        version, 
+        datetime, 
+        user, 
+        app-version, 
+        device+(-name), 
+        reference doc,line.point
+        ),
+    ),
+    log.passed.executions(500 words) = (
+        problem/needs, 
+        strategy/solution, 
+        pros and cons > 
+        proposed solution, 
+        arguments passed/rejected, 
+        app-version, 
+        datetime, 
+        user, 
+        build-version, 
+        Device,
+        device-name, 
+        reference docName,
+        reference doc,line.point
+        )
+    ),
+    Log.StepProgress(500 words):(
+            - identify:(
+                needs, 
+                permissions, 
+                resources, 
+                goals,
+                database, 
+                data, 
+                users, 
+                structure step solution execution, 
+                inputs, outputs and constraints.
+            )
+            - make hypotheses(
+                outcomes,
+                set up: (frame for solving problem),
+                set up: (step Log for solving(step in progress)> 
+                            update log before trying to solve)
+            - stress test solution,
+                test and refine. 
+                satisfied = 99% accuracy, 
+                if not, document error texts and try to solve again. 
+                + document old solution repeat step 0,1,2,3 (max 5 cycles) 
+            - scan code:( 
+                errors, 
+                updates, 
+                version conflict, 
+                source files, 
+                link derictions, 
+                etc... 
+            ),
+            and fix them (npm,ps) >> max 5 cycles per terminal >> (
+                persist untill hypthese>99% accuracy.
+            - if solved: (
+                    open android studio > 
+                    Set config for project > 
+                    build > 
+                    run debug, 
+                    satisfied =( hypothese compare >
+                                    99% accuracy,     
+                    )
+                )
+            ),
+            - if not:( (re)evaluate logs, plan, think proces >> identify scope(strengths/weaknessen, exercutionperspective, debug, test, goal focus))
+        )
+    )
+)
+Execute log >> steps:(
+    - step 1: identify needs, permissions, resources, goals,database, data, users, etc... +structure, inputs, outputs and constraints.
+    - step 2: make hypotheses on outcomes> set up structure and step Log for solving(step in progress)> update log before trying to solve.
+    - step 3: stress test solutions, test and refine. satisfied = 99% accuracy, if not, document error texts and try to solve again. + document old solution repeat step 1,2,32 (max 3 cycles) 
+    - step 4: masterplan.txt = (
+        Step state "Done": review Log and make sure all steps are done and reviews in master.txt Log,
+        Step state InProgress: (
+            identify inProgress: inprogress:individual step (
+                Review step Log,
+                step requirements:(done:y/n), 
+                accept or edit individual steps: Step (unstarted, inprogress, finished, Failed), 
+                execute tasks for individual step >> satisfied = 99% accuracy, 
+                if not, document error texts and try to solve again. 
+                + document old solution in specific Log (max 3 cycles, after: Set state to Failed >> skip Step) 
+            ),
+            Step state: (Finished): (
+                review step Log,
+                set state, 
+                update Specific Log and move to next step. 
+            ),
+            Step state: Failed: (
+                identify failed step:Step (unstarted, inprogress, finished, Failed), 
+                review step Log, edit scope/strategy based on Failed info, edit solutions steps, review pros and cons, if satisfied >> execute.(max 10 cycles)
+                set state, update Specific Log and move to next step. 
+            )
+        ),
+    )
+)
