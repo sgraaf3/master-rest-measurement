@@ -141,7 +141,7 @@ function showAdvancedAnalysisModal() {
     const rrUrl = URL.createObjectURL(rrBlob);
 
     modal.style.display = 'block';
-    frame.src = `AdvancedHRVAnalysis/AdvancedHRVAnalysis.html?rrfile=${encodeURIComponent(rrUrl)}`;
+    frame.src = `AdvancedHRVAnalysis\\AdvancedHRVAnalysis.html?rrfile=${encodeURIComponent(rrUrl)}`;
 
     closeButton.onclick = () => {
         modal.style.display = 'none';

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRV Rapport</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HRV-Welzijnsrapport</h1>
+            <p class="subtitle">Een diepgaande analyse van uw autonome zenuwstelsel</p>
+        </header>
+
+        <section id="client-info">
+            <h2>Cliëntgegevens</h2>
+            <p><strong>Naam:</strong> <span id="client-name">[Cliëntnaam]</span></p>
+            <p><strong>Datum:</strong> <span id="report-date">[Datum]</span></p>
+        </section>
+
+        <section id="introduction">
+            <h2>Inleiding tot HRV</h2>
+            <p>Hartslagvariabiliteit (HRV) is de natuurlijke variatie in tijd tussen hartslagen. Het is een krachtige indicator van de gezondheid van uw autonome zenuwstelsel, dat vitale functies zoals hartslag, ademhaling en spijsvertering reguleert. Een hogere HRV wordt over het algemeen geassocieerd met een betere gezondheid, veerkracht en herstel.</p>
+        </section>
+
+        <section id="summary">
+            <h2>Samenvatting van uw resultaten</h2>
+            <div class="summary-grid">
+                <div class="summary-metric">
+                    <span class="metric-value" id="conditioning-score">--</span>
+                    <span class="metric-label">Conditioning Score (%)</span>
+                </div>
+                <div class="summary-metric">
+                    <span class="metric-value" id="recovery-score">--</span>
+                    <span class="metric-label">Herstelscore (%)</span>
+                </div>
+                <div class="summary-metric">
+                    <span class="metric-value" id="energy-score">--</span>
+                    <span class="metric-label">Algehele Energie</span>
+                </div>
+                <div class="summary-metric">
+                    <span class="metric-value" id="hrv-state">--</span>
+                    <span class="metric-label">HRV Staat</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="detailed-analysis">
+            <h2>Gedetailleerde Analyse</h2>
+            <div class="chart-container">
+                <h3>RR-intervallen & Hartslag</h3>
+                <canvas id="rr-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="rr-explanation">De RR-intervallen grafiek toont de variatie in tijd tussen elke hartslag. Een grotere, maar stabiele variatie (op en neer gaande lijn) duidt op een gezond en adaptief zenuwstelsel.</p>
+                    <h4>Uw Score</h4>
+                    <p id="rr-score">Uw gemiddelde hartslag was <strong>65 bpm</strong> met een gemiddeld RR-interval van <strong>923 ms</strong>. De variatie in uw intervallen lijkt consistent, wat positief is.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="rr-recommendations">
+                        <li>Blijf consistent met uw slaap- en waakritme om een stabiele HRV te ondersteunen.</li>
+                        <li>Focus op neusademhaling gedurende de dag.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="rr-applications">Analyse van RR-intervallen is fundamenteel in de sportwetenschap voor het monitoren van trainingsbelasting en herstel, en in de klinische praktijk voor het beoordelen van cardiovasculaire gezondheid.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Poincaré Plot</h3>
+                <canvas id="poincare-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="poincare-explanation">De Poincaré plot visualiseert de correlatie tussen opeenvolgende RR-intervallen. De vorm van de 'wolk' geeft inzicht in de balans van het zenuwstelsel. Een komeet-achtige vorm is ideaal.</p>
+                    <h4>Uw Score</h4>
+                    <p id="poincare-score">Uw plot toont een redelijk geconcentreerde, elliptische vorm. Uw <strong>SD1</strong> (kortetermijnvariabiliteit) is <strong>45 ms</strong> en uw <strong>SD2</strong> (langetermijnvariabiliteit) is <strong>110 ms</strong>. De verhouding (SD2/SD1) is <strong>2.44</strong>, wat duidt op een goede balans.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="poincare-recommendations">
+                        <li>Activiteiten zoals yoga of meditatie kunnen helpen de kortetermijnvariabiliteit (SD1) te verbeteren.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="poincare-applications">In de cardiologie wordt de Poincaré plot gebruikt om hartritmestoornissen te detecteren. In de sport wordt het gebruikt om de balans tussen sympathische en parasympathische activiteit te beo
+            </div>
+            <div class="chart-container">
+                <h3>HRV-metriek</h3>
+                <canvas id="hrv-metrics-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="hrv-metrics-explanation">Deze grafiek toont de kerncijfers van de tijdsdomein-analyse. <strong>RMSSD</strong> weerspiegelt de parasympathische (rust en herstel) activiteit op korte termijn, terwijl <strong>SDNN</strong> de algehele variabiliteit over de gehele meting aangeeft.</p>
+                    <h4>Uw Score</h4>
+                    <p id="hrv-metrics-score">Uw <strong>RMSSD</strong> is <strong>48 ms</strong> en uw <strong>SDNN</strong> is <strong>115 ms</strong>. Deze waarden duiden op een goede herstelstatus en een robuust zenuwstelsel.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="hrv-metrics-recommendations">
+                        <li>Een goede nachtrust is cruciaal voor het verbeteren van zowel RMSSD als SDNN.</li>
+                        <li>Beperk alcohol en zware maaltijden voor het slapengaan.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="hrv-metrics-applications">RMSSD en SDNN zijn de meest gebruikte parameters in zowel sportcoaching om overtraining te voorkomen, als in de medische wereld voor het inschatten van cardiovasculair risico.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>RR Histogram</h3>
+                <canvas id="histogram-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="histogram-explanation">Het RR-histogram toont de verdeling van al uw hartslagintervallen. Een brede basis duidt op een grote variabiliteit, wat wenselijk is. De <strong>HRV Triangular Index</strong> is een maat voor de totale variabiliteit.</p>
+                    <h4>Uw Score</h4>
+                    <p id="histogram-score">Uw histogram heeft een gezonde, brede vorm met een <strong>HRV Triangular Index</strong> van <strong>35</strong>. Dit bevestigt een goede algehele hartslagvariabiliteit.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="histogram-recommendations">
+                        <li>Regelmatige, matige lichaamsbeweging kan de algehele variabiliteit vergroten.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="histogram-applications">Geometrische metingen zoals de HRV-index worden gebruikt voor een snelle, globale inschatting van de autonome functie, met name in grootschalige studies.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Frequentiedomein</h3>
+                <canvas id="frequency-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="frequency-explanation">Deze analyse splitst uw HRV op in frequentiebanden. <strong>HF (High Frequency)</strong> is gekoppeld aan uw ademhaling en parasympathische activiteit (ontspanning). <strong>LF (Low Frequency)</strong> wordt beïnvloed door zowel het sympathische als parasympathische systeem. De <strong>LF/HF-ratio</strong> geeft een indicatie van de balans.</p>
+                    <h4>Uw Score</h4>
+                    <p id="frequency-score">Uw meting toont een sterke <strong>HF-component</strong>, wat duidt op een goede parasympathische dominantie (ontspanning). Uw <strong>LF/HF-ratio</strong> is <strong>0.8</strong>, wat een uitstekende balans aangeeft.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="frequency-recommendations">
+                        <li>Langzame, diepe ademhalingsoefeningen (rond 6 ademhalingen per minuut) kunnen de HF-kracht direct verhogen.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="frequency-applications">Frequentieanalyse is essentieel in stressonderzoek, psychofysiologie en voor het evalueren van de effecten van interventies zoals meditatie of ademhalingstherapie.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Ademhalingsgolf</h3>
+                <canvas id="breathing-chart"></canvas>
+                <div class="analysis-details">
+                    <h4>Uitleg</h4>
+                    <p id="breathing-explanation">De ademhalingsgolf wordt afgeleid uit uw hartslagvariabiliteit (een fenomeen genaamd Respiratoire Sinus Aritmie). Het toont hoe uw hartslag versnelt bij inademen en vertraagt bij uitademen. Een duidelijke, stabiele golf is een teken van een gezonde hart-long koppeling.</p>
+                    <h4>Uw Score</h4>
+                    <p id="breathing-score">Uw ademhalingsgolf is consistent met een gemiddelde frequentie van <strong>12 ademhalingen per minuut</strong>. De amplitude van de golf is goed, wat duidt op een efficiënte ademhaling.</p>
+                    <h4>Aanbevelingen</h4>
+                    <ul id="breathing-recommendations">
+                        <li>Probeer bewust uw uitademing te verlengen om het kalmerende effect op uw zenuwstelsel te vergroten.</li>
+                    </ul>
+                    <h4>Toepassingen</h4>
+                    <p id="breathing-applications">Deze visualisatie wordt gebruikt in biofeedback-training om mensen te leren hun ademhaling en daarmee hun stressniveau te reguleren.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations">
+            <h2>Aanbevelingen voor verbetering</h2>
+            <div id="recommendations-content">
+                <!-- Aanbevelingen worden hier dynamisch ingevoegd -->
+            </div>
+        </section>
+
+        <footer>
+            <p>Dit rapport is gegenereerd op basis van de verstrekte HRV-gegevens en is bedoeld voor informatieve doeleinden. Raadpleeg een arts voor medisch advies.</p>
+        </footer>
+    </div>
+    <script src="report.js" type="module"></script>
+</body>
+</html>

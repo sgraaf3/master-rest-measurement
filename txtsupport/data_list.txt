@@ -1,0 +1,10 @@
+Name, Directory
+Measurement_Files, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+modules, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+UserProfile, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+bluetooth.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+history.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+hr-zone.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+hrv-calculations.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+txt-exporter.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\
+ui.js, c:\Users\sgraa\Desktop\single pages\master rest measurement\js\

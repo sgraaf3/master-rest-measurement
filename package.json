@@ -1,0 +1,23 @@
+{
+  "name": "master-rest-measurement",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "build": "echo \"Building project...\" && exit 0",
+    "start": "echo \"Starting project...\" && exit 0",
+    "masterplan": "powershell -File ./masterplan.ps1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "-": "^0.0.1",
+    "deepseek": "^0.0.2",
+    "dep": "^0.18.2",
+    "openai": "^5.8.2",
+    "pip3": "^420.911.69",
+    "python": "^0.0.4"
+  }
+}

@@ -1,24 +1,24 @@
 
 // Add at the top of your <script type="module">
 document.addEventListener('DOMContentLoaded', () => {
-const params = new URLSearchParams(window.location.search);
-const rrfile = params.get('rrfile');
-if (rrfile) {
-fetch(rrfile)
-    .then(res => res.text())
-    .then(text => {
-        // Simulate file upload
-        const rrIntervalsRaw = text.split('\n').map(s => s.trim()).filter(s => s !== '');
-        const rrIntervals = rrIntervalsRaw.map(Number).filter(n => !isNaN(n) && n > 0);
-        try {
-            const hrvAnalyzer = new HRVAnalyzer(rrIntervals);
-            displayAnalysisResults(hrvAnalyzer);
-        } catch (error) {
-            displayError(error.message);
-            document.getElementById('analysisResults').innerHTML = '';
-        }
-    });
-}
+    const params = new URLSearchParams(window.location.search);
+    const rrfile = params.get('rrfile');
+    if (rrfile) {
+        fetch(rrfile)
+            .then(res => res.text())
+            .then(text => {
+                // Simulate file upload
+                const rrIntervalsRaw = text.split('\n').map(s => s.trim()).filter(s => s !== '');
+                const rrIntervals = rrIntervalsRaw.map(Number).filter(n => !isNaN(n) && n > 0);
+                try {
+                    const hrvAnalyzer = new HRVAnalyzer(rrIntervals);
+                    displayAnalysisResults(hrvAnalyzer);
+                } catch (error) {
+                    displayError(error.message);
+                    document.getElementById('analysisResults').innerHTML = '';
+                }
+            });
+    }
 });
 
 // Helper function to display error messages
@@ -250,7 +250,7 @@ class HRVAnalyzer {
         // These are illustrative values and do not come from a true FFT calculation.
         // A proper frequency domain analysis requires robust signal processing libraries.
         if (isNaN(this.rmssd) || isNaN(this.sdnn) || this.sdnn === 0) {
-                return {
+            return {
                 'VLF Power (ms²)': 0,
                 'LF Power (ms²)': 0,
                 'HF Power (ms²)': 0,
@@ -359,7 +359,7 @@ class HRVAnalyzer {
         // -60000 / RR_ms converts RR to negative bpm for an inverted wave shape
         return this.rrIntervals.map(rr => {
             if (rr === 0 || isNaN(rr)) return null; // Avoid division by zero
-            return parseFloat((-(rr/60)).toFixed(2));
+            return parseFloat((-(rr / 60)).toFixed(2));
         });
     }
 }
@@ -668,9 +668,9 @@ function displayAnalysisResults(hrvData) {
         console.log("Poincaré Plot chart initialized."); // Debugging log
 
         // Chart 3: HRV Metrics Bar Chart
-        const hrvMetricsLabels = [ 'SDNN', 'RMSSD', 'NN50', 'pNN50']; /* Mean RR */
-        const hrvMetricsValues = [ hrvData.sdnn, hrvData.rmssd, hrvData.nn50, hrvData.pnn50]
-                                    .map(val => isNaN(val) ? null : val); // Convert NaN to null
+        const hrvMetricsLabels = ['SDNN', 'RMSSD', 'NN50', 'pNN50']; /* Mean RR */
+        const hrvMetricsValues = [hrvData.sdnn, hrvData.rmssd, hrvData.nn50, hrvData.pnn50]
+            .map(val => isNaN(val) ? null : val); // Convert NaN to null
         console.log("HRV Metrics Bar Chart data:", hrvMetricsValues); // Debugging log
         chartInstances['chart-hrv-bar'] = new Chart(hrvMetricsCanvas.getContext('2d'), {
             type: 'bar',
@@ -775,7 +775,7 @@ function displayAnalysisResults(hrvData) {
         chartInstances['chart-breathing-wave'] = new Chart(breathingWaveCanvas.getContext('2d'), {
             type: 'line',
             data: {
-                labels: hrvData.breathingWave.map((_,i) => i),
+                labels: hrvData.breathingWave.map((_, i) => i),
                 datasets: [{
                     label: 'Ademhalingsgolf ', /* Breathing Wave (simulated bpm) */
                     data: breathingWaveDataForChart,
@@ -863,6 +863,33 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsText(file);
     });
 
-    // Event listener for the new HRV Insight button
-    getHrvInsightBtn.addEventListener('click', getHRVInsight);
+   getHrvInsightBtn.addEventListener('click', () => {
+       clearError();
+       document.getElementById('hrvInsightContainer').classList.add('hidden');
+       
+       // Check if the RR file input is empty
+       if (!rrFileUpload.value) {
+           const requiredFields = [
+               { name: 'Name', value: '' },
+               { name: 'Age', value: '' },
+               { name: 'Length', value: '' },
+               { name: 'Weight', value: '' },
+               { name: 'Gender', value: '' }
+           ];
+           
+           const shouldProceed = requiredFields.every(field => {
+               return confirm(`${field.name}, missing data. Required > input text below?`);
+           });
+   
+           if (!shouldProceed) {
+               return; // Exit early if user cancels any confirmation
+           }
+       }
+       
+       // Only proceed with redirection if there's data or user chooses to proceed anyway
+       window.location.href = `report/report.html?rrfile=${encodeURIComponent(rrFileUpload.value)}`;
+   });
+   
+    
 });
+  
